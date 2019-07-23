@@ -1,4 +1,4 @@
-package cn.chenzw.maven;
+package cn.chenzw.maven.jar.plugin;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
