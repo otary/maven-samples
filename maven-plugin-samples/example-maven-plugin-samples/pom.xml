@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>maven-plugin-samples</artifactId>
+        <groupId>cn.chenzw.maven</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>example-maven-plugin-samples</artifactId>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>cn.chenzw.maven</groupId>
+                <artifactId>example-maven-plugin</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <id>hello</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>hello</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>count</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>count</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <level>10</level>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

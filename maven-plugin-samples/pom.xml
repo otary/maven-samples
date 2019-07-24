@@ -11,8 +11,9 @@
     <modules>
         <module>maven-assembly-plugin-samples</module>
         <module>maven-jar-plugin-samples</module>
-        <module>maven-example-plugin</module>
         <module>maven-resources-plugin-samples</module>
+        <module>example-maven-plugin</module>
+        <module>example-maven-plugin-samples</module>
     </modules>
     <packaging>pom</packaging>
 
