@@ -8,8 +8,12 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>maven-jar-plugin-samples</artifactId>
+
+    <properties>
+        <project.package.targetdir>package</project.package.targetdir>
+    </properties>
+
 
     <dependencies>
         <dependency>
@@ -26,25 +30,42 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.1.2</version>
                 <configuration>
-                    <!-- Configures the created archive -->
                     <archive>
-                        <!-- Configures the content of the created manifest -->
+                        <!-- 配置manifest内容 -->
                         <manifest>
                             <!-- Adds the classpath to the created manifest -->
                             <addClasspath>true</addClasspath>
-                            <!--
-                                Specifies that all dependencies of our application are found
-                                from the lib directory.
-                            -->
+
+                            <!-- 指定依赖包所在目录 -->
                             <classpathPrefix>lib/</classpathPrefix>
 
                             <!-- 主入口类 -->
                             <mainClass>cn.chenzw.maven.jar.plugin.TestApp</mainClass>
                         </manifest>
                     </archive>
+                    <outputDirectory>${project.basedir}/${project.package.targetdir}/</outputDirectory>
                 </configuration>
+            </plugin>
+
+            <!-- 依赖打包插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.1.1</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <!-- 依赖输出目录 -->
+                            <outputDirectory>${project.basedir}/${project.package.targetdir}/lib</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
-
 </project>
