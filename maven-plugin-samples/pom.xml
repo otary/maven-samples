@@ -16,6 +16,7 @@
         <module>example-maven-plugin</module>
         <module>example-maven-plugin-samples</module>
         <module>maven-javadoc-plugin-samples</module>
+        <module>maven-shade-plugin-samples</module>
     </modules>
 
     <parent>
